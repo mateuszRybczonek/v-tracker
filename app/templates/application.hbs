@@ -1,5 +1,8 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
+{{#if session.isAuthenticated}}
+  {{top-navigation session=session}}
+{{else}}
+  <nav>
+    {{#link-to 'login' class="navbar-brand"}}V-Tracker{{/link-to}}
+  </nav>
+{{/if}}
 {{outlet}}

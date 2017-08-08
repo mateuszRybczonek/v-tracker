@@ -1,0 +1,13 @@
+{{#unless session.isAuthenticated}}
+  {{#paper-button
+    id='login-btn'
+    class='login-btn'
+    raised=true
+    onClick=(route-action 'signIn' 'google')
+    accent=true
+  }}
+    Login with {{fa-icon 'google'}}
+  {{/paper-button}}
+{{/unless}}
+
+{{outlet}}
