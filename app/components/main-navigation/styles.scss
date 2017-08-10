@@ -54,6 +54,11 @@ $bounce: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  @media all and (max-width: $phone) {
+    left: 20px;
+    bottom: -30px;
+  }
 }
 
 &.menu-opened {

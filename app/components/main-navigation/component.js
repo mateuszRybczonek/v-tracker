@@ -22,7 +22,6 @@ export default Component.extend({
 
   actions: {
     signOut() {
-      debugger;
       this.get('session').close().then(() => {
         this.get('router').transitionTo('login');
       });
