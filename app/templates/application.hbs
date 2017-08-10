@@ -1,8 +1,13 @@
 {{#if session.isAuthenticated}}
-  {{top-navigation session=session}}
+  {{main-navigation session=session}}
+  <main class="content">
+    <div class="content-inner">
+      {{outlet}}
+    </div>
+  </main>
 {{else}}
   <nav>
     {{#link-to 'login' class="navbar-brand"}}V-Tracker{{/link-to}}
   </nav>
+  {{outlet}}
 {{/if}}
-{{outlet}}

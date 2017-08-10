@@ -1,0 +1,41 @@
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius+px;
+  -webkit-border-radius: $radius+px;
+  border-radius: $radius+px;
+}
+
+@mixin font($font-size, $font-weight:null, $line-height:null, $font-family:null) {
+  font-size: $font-size;
+  @if $font-weight != null {
+    font-weight: $font-weight;
+  }
+  @if $font-family != null {
+    font-family: $font-family;
+  }
+  @if $line-height != null {
+    line-height: $line-height;
+  }
+}
+
+@mixin transitions-all {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+@mixin font-roboto {
+  font-family: Roboto !important;
+}
+
+@mixin font-thin {
+  font-weight: 100;
+}
+
+@mixin font-medium {
+  font-weight: 300;
+}
+
+@mixin font-bold {
+  font-weight: 800;
+}

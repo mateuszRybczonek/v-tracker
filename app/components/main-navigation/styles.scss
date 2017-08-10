@@ -1,0 +1,80 @@
+$snap: cubic-bezier(1.000, 0.005, 0.240, 1.000);
+$bounce: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+* {
+  box-sizing: border-box;
+}
+
+.menu-toggle {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  height: 80px;
+  background-color: $color-tomato;
+  border-bottom-right-radius: 100%;
+
+  &:active {
+    i {
+      opacity: 0.8
+    }
+  }
+
+  i {
+    color: $color-whitey;
+  }
+
+  .menu-open,
+  .menu-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -12px;
+    transition: transform .7s $snap;
+  }
+
+  .menu-open {
+    transform-origin: -100px -100px;
+  }
+
+  .menu-close {
+    transform: rotate(20deg);
+    transform-origin: -100px -160px;
+  }
+}
+
+.menu-items {
+  position: fixed;
+  bottom: 0;
+  left: 50px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+&.menu-opened {
+  .menu-open {
+    transform: rotate(-20deg);
+  }
+  .menu-close {
+    transform: rotate(0);
+  }
+
+  .menu-items {
+    li {
+      transform: translateX(0);
+      transition: transform .35s .45s $bounce;
+
+      &:nth-child(2){
+        transition-delay: .47s;
+      }
+      &:nth-child(3){
+        transition-delay: .48s;
+      }
+    }
+  }
+}
