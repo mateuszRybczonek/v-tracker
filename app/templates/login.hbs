@@ -1,13 +1,10 @@
 {{#unless session.isAuthenticated}}
-  {{#paper-button
-    id='login-btn'
-    class='login-btn'
-    raised=true
+  {{#vt-ui/buttons/positive
     onClick=(route-action 'signIn' 'google')
-    accent=true
   }}
-    Login with {{fa-icon 'google'}}
-  {{/paper-button}}
+    Log in with
+    {{vt-ui/fa-icon icon='google'}}
+  {{/vt-ui/buttons/positive}}
 {{/unless}}
 
 {{outlet}}

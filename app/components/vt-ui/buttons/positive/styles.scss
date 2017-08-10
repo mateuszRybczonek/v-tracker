@@ -1,0 +1,23 @@
+@import '../buttons-mixin';
+
+& {
+  @include common-button();
+  @include green-button();
+  @include box-shadow(0 8px 16px 0 rgba(83, 99, 115, 0.32));
+  @include font(16px, 700);
+  min-height: 56px;
+  padding: 0 32px;
+  text-transform: uppercase;
+
+  @media all and (max-width: $phone) {
+    font-size: 20px;
+    width: 100%;
+  }
+
+  > .icon {
+    margin-left: 8px;
+    font-size: 22px;
+    line-height: 21px;
+    vertical-align: middle;
+  }
+}

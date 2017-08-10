@@ -24,18 +24,17 @@
   transition: all 0.2s ease-in-out;
 }
 
-@mixin font-roboto {
-  font-family: Roboto !important;
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
 }
 
-@mixin font-thin {
-  font-weight: 100;
-}
-
-@mixin font-medium {
-  font-weight: 300;
-}
-
-@mixin font-bold {
-  font-weight: 800;
+@mixin box-shadow($shadow-def) {
+  box-shadow: $shadow-def;
+  -webkit-box-shadow: $shadow-def;
+  -moz-box-shadow: $shadow-def;
+  -o-box-shadow: $shadow-def;
 }
