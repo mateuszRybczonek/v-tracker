@@ -43,13 +43,13 @@
     }
 
     &:hover, &:active {
-      color: $color-tomato;
+      color: $color-green;
 
       .icon {
-        color: $color-tomato;
+        color: $color-green;
 
         &:after {
-          border-color: $color-tomato;
+          border-color: $color-green;
         }
       }
     }

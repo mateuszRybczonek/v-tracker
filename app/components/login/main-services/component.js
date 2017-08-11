@@ -13,13 +13,13 @@ export default Component.extend({
         'World-wide cover'
       ],
     }, {
-      icon: 'assignment',
+      icon: 'content-paste',
       title: 'Reports',
       descriptionItems: [
         'Remotely reports'
       ],
     }, {
-      icon: 'assessment',
+      icon: 'bar-chart',
       title: 'Statistics',
       descriptionItems: [
         'Track performance'

@@ -1,0 +1,14 @@
+{{paper-icon icon class='explore-icon'}}
+{{#vt-typography/subheaders/normal class='title'}}
+  {{title}}
+{{/vt-typography/subheaders/normal}}
+
+<div class="description">
+  {{#each descriptionItems as |descriptionItem|}}
+    <li>
+      {{#vt-typography/subheaders/small}}
+        {{descriptionItem}}
+      {{/vt-typography/subheaders/small}}
+    </li>
+  {{/each}}
+</div>
