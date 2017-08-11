@@ -1,0 +1,10 @@
+@import '../headers-mixin';
+
+& {
+  @include base-typo-header();
+  @include font(30px, 600, normal);
+
+  @media all and (max-width: $phone) {
+    @include font(36px, 700, normal);
+  }
+}

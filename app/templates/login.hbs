@@ -1,10 +1,4 @@
-{{#unless session.isAuthenticated}}
-  {{#vt-ui/buttons/positive
-    onClick=(route-action 'signIn' 'google')
-  }}
-    Log in with
-    {{vt-ui/fa-icon icon='google'}}
-  {{/vt-ui/buttons/positive}}
-{{/unless}}
-
-{{outlet}}
+<div class="login-page">
+  {{login/main-header}}
+  {{outlet}}
+</div>
