@@ -1,0 +1,15 @@
+& {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-green;
+  height: 50em;
+
+  .small-title {
+    text-align: center;
+    padding: 70px 0;
+    color: #FFF;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
