@@ -3,4 +3,5 @@
 @mixin base-typo-subheader() {
   @include base-typography();
   margin: 0 0 8px;
+  color: $color-font-light-grey;
 }
