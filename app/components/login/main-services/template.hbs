@@ -1,0 +1,13 @@
+{{#vt-typography/subheaders/small class='small-title'}}
+  Try our main services. Which one works best for you?
+{{/vt-typography/subheaders/small}}
+
+<div class="explore">
+  {{#each items as |item|}}
+    {{login/main-services/item
+      icon=item.icon
+      title=item.title
+      descriptionItems=item.descriptionItems
+    }}
+  {{/each}}
+</div>

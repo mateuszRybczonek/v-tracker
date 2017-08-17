@@ -1,0 +1,12 @@
+@import 'mixins/color-scheme';
+@import 'mixins/mixins-collection';
+
+$font-1x: 14px;
+$font-2x: 28px;
+
+$phone: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+$snap: cubic-bezier(1.000, 0.005, 0.240, 1.000);
+$bounce: cubic-bezier(0.175, 0.885, 0.320, 1.275);
