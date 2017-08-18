@@ -1,0 +1,76 @@
+{{paper-input
+  class=form-control
+  label="Name"
+  value=vessel.name
+  onChange=(action (mut vessel.name))
+  required=true
+  errorMessages=(hash required="Name is required.")
+}}
+
+{{paper-input
+  class=form-control
+  label="IMO Number"
+  value=vessel.imoNumber
+  onChange=(action (mut vessel.imoNumber))
+  required=true
+  errorMessages=(hash required="IMO number is required.")
+}}
+
+{{paper-input
+  class=form-control
+  label="Flag"
+  value=vessel.flag
+  onChange=(action (mut vessel.flag))
+  required=true
+  errorMessages=(hash required="Flag is required.")
+}}
+
+{{paper-input
+  class='form-control hidden'
+  value=vessel.user
+  required=true
+  onChange=null
+}}
+
+<div class="bottom-row">
+  <div class='file-upload'>
+    {{#paper-button
+      raised=true
+      iconButton=true
+    }}
+      {{#x-file-input
+        class='custom-class'
+        multiple=false
+        name='files'
+        action=(action 'didSelectImage')
+        accept='image/jpg,image/jpeg'
+      }}
+        {{paper-icon 'cloud-upload'}}
+        {{#if uploadInProgress}}
+          <span>Uploading file...</span>
+          {{paper-icon "rotate-right" spin=true}}
+          {{formattedProgressValue}}
+        {{else}}
+          <span>Upload vessels image (.jpeg)</span>
+        {{/if}}
+      {{/x-file-input}}
+    {{/paper-button}}
+
+    <div class='upload-successful'>
+      <span>File succesfully uploaded</span>
+      {{paper-icon 'done'}}
+    </div>
+  </div>
+
+  <div class='save-button'>
+    {{#paper-button
+      raised=true
+      iconButton=true
+      onClick=(route-action 'saveVessel' vessel)
+      disabled=isInvalid
+    }}
+      {{paper-icon "save"}}
+      <span>Save</span>
+    {{/paper-button}}
+  </div>
+</div>

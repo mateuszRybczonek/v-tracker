@@ -1,0 +1,16 @@
+& {
+  display: flex;
+  flex-wrap: wrap;
+
+  .beer-list-item {
+    margin: 20px 10px;
+
+    @media all and (max-width: $phone) {
+      margin: 0;
+    }
+  }
+
+  @media all and (max-width: $phone) {
+    flex-direction: column;
+  }
+}
