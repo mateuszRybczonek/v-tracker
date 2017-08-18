@@ -22,7 +22,7 @@ export default Route.extend({
             email: data.currentUser.email,
           });
           user.save();
-          this.transitionTo('users');
+          this.transitionTo('users.vessels');
         }
       });
     },
