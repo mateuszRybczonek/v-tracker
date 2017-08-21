@@ -1,0 +1,15 @@
+@import '../buttons-mixin';
+
+& {
+  @include common-button();
+  @include green-button();
+  @include font(13px, 700);
+  min-height: 40px;
+  padding: 0 16px;
+
+  @media all and (max-width: $phone) {
+    font-size: 17px;
+    min-height: 48px;
+    width: 100%;
+  }
+}

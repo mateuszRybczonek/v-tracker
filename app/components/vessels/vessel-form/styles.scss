@@ -9,12 +9,18 @@
   .bottom-row {
     display: flex;
     flex-direction: row;
+    margin-top: 30px;
+
+    @media all and (max-width: $phone) {
+      flex-direction: column;
+    }
   }
 
   .upload-successful {
     color: $color-green;
     display: none;
   }
+
 
   .md-button.md-icon-button {
     width: 220px;

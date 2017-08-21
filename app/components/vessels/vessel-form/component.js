@@ -51,8 +51,8 @@ export default Component.extend({
       });
     },
 
-    onClick() {
+    back() {
       this.get('router').transitionTo('users.vessels');
-    }
+    },
   },
 });
