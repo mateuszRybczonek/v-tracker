@@ -1,3 +1,10 @@
+{{#vt-ui/buttons/negative
+  onClick=(action 'onClick')
+}}
+  {{vt-ui/fa-icon icon='arrow-left'}}
+  Back
+{{/vt-ui/buttons/negative}}
+
 {{paper-input
   class=form-control
   label="Name"
@@ -56,14 +63,12 @@
   </div>
 
   <div class='save-button'>
-    {{#paper-button
-      raised=true
-      iconButton=true
+    {{#vt-ui/buttons/positive
       onClick=(route-action 'saveVessel' vessel)
       disabled=isInvalid
     }}
-      {{paper-icon "save"}}
-      <span>Save</span>
-    {{/paper-button}}
+      {{vt-ui/fa-icon icon='save'}}
+      Save
+    {{/vt-ui/buttons/positive}}
   </div>
 </div>

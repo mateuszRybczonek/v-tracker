@@ -4,6 +4,7 @@ const { Component, computed, inject: { service }, $ } = Ember;
 
 export default Component.extend({
 
+  router: service('-routing'),
   firebaseApp: service(),
   storageRef: '',
   file: '',
@@ -49,5 +50,9 @@ export default Component.extend({
         $('.upload-successful').show(1000);
       });
     },
+
+    onClick() {
+      this.get('router').transitionTo('users.vessels');
+    }
   },
 });
