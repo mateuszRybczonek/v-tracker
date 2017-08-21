@@ -14,6 +14,10 @@ export default Route.extend({
     controller.set('vessel', model);
   },
 
+  renderTemplate() {
+    this.render('users/vessels/new');
+  },
+
   actions: {
     saveVessel(newVessel) {
       newVessel.updatedAt = new Date();

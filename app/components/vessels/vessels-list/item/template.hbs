@@ -10,3 +10,12 @@
   {{vessel.imoNumber}}
 {{/vt-typography/subheaders/small}}
 
+{{#link-to 'users.vessels.edit' vessel.id}}
+  {{#paper-button
+    iconButton=true
+    class='edit-vessel'
+  }}
+    {{paper-icon "create"}}
+  {{/paper-button}}
+{{/link-to}}
+
