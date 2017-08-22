@@ -1,5 +1,8 @@
 {{#each vessels as |vessel|}}
-  {{vessels/vessels-list/item vessel=vessel}}
+  {{vessels/vessels-list/item
+    vessel=vessel
+    session=session
+  }}
 {{/each}}
 
 {{vessels/vessels-list/add-new}}

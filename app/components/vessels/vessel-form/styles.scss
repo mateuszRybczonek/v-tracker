@@ -32,4 +32,14 @@
       width: 100%;
     }
   }
+
+  img {
+    align-self: center;
+    width: 200px;
+    height: auto;
+
+    @media all and (max-width: $phone) {
+      width: 100%;
+    }
+  }
 }
