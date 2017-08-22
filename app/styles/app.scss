@@ -9,7 +9,10 @@
 html,
 body {
   font-family: Roboto;
-  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
 }
 
 .content {
@@ -33,6 +36,10 @@ body {
   overflow-y: auto;
 
   padding: 50px 20%;
+
+  @media all and (max-width: $phone) {
+    padding: 90px 0%;
+  }
 }
 
 .menu-opened.content {

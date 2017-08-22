@@ -1,0 +1,29 @@
+<div class="image">
+  <img src={{imageUrl}}>
+</div>
+
+{{#vt-typography/subheaders/small}}
+  {{vessel.name}}
+{{/vt-typography/subheaders/small}}
+
+{{#vt-typography/subheaders/small}}
+  IMO number:
+  {{vessel.imoNumber}}
+{{/vt-typography/subheaders/small}}
+
+<div class="buttons">
+  {{#vt-ui/buttons/negative-small
+    onClick=(action 'transitionToEdit')
+  }}
+    {{#vt-typography/subheaders/small}}
+      {{vt-ui/fa-icon icon='edit'}}
+      Edit
+    {{/vt-typography/subheaders/small}}
+  {{/vt-ui/buttons/negative-small}}
+
+  {{vessels/vessels-list/item/button-delete
+    vessel=vessel
+    session=session
+  }}
+</div>
+

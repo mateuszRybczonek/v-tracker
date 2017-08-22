@@ -1,0 +1,102 @@
+<img src={{imageUrl}}>
+
+{{paper-input
+  class=form-control
+  label="Name"
+  value=vessel.name
+  onChange=(action (mut vessel.name))
+  required=true
+  errorMessages=(hash required="Name is required.")
+}}
+
+{{paper-input
+  class=form-control
+  label="IMO Number"
+  value=vessel.imoNumber
+  onChange=(action (mut vessel.imoNumber))
+  required=true
+  errorMessages=(hash required="IMO number is required.")
+}}
+
+{{paper-input
+  class=form-control
+  label="Callsign"
+  value=vessel.callsign
+  onChange=(action (mut vessel.callsign))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="MMSI"
+  value=vessel.MMSI
+  onChange=(action (mut vessel.MMSI))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="GT"
+  value=vessel.GT
+  onChange=(action (mut vessel.GT))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="Year build"
+  value=vessel.yearBuild
+  onChange=(action (mut vessel.yearBuild))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="Flag"
+  value=vessel.flag
+  onChange=(action (mut vessel.flag))
+  required=true
+  errorMessages=(hash required="Flag is required.")
+}}
+
+<div class='file-upload'>
+  {{#vt-ui/buttons/default-small}}
+    {{#x-file-input
+      multiple=false
+      name='files'
+      action=(action 'didSelectImage')
+      accept='image/jpg,image/jpeg'
+    }}
+      {{vt-ui/fa-icon icon='photo'}}
+      {{#if uploadInProgress}}
+        <span>Uploading file...</span>
+        {{vt-ui/fa-icon icon='circle-o-notch'}}
+        {{formattedProgressValue}}
+      {{else}}
+        <span>Upload vessels image (.jpeg)</span>
+      {{/if}}
+    {{/x-file-input}}
+  {{/vt-ui/buttons/default-small}}
+
+  <div class='upload-successful'>
+    <span>File succesfully uploaded</span>
+    {{paper-icon 'done'}}
+  </div>
+</div>
+
+<div class="bottom-row">
+  {{#vt-ui/buttons/positive
+    onClick=(route-action 'saveVessel' vessel)
+    disabled=isInvalid
+  }}
+    {{vt-ui/fa-icon icon='save'}}
+    Save
+  {{/vt-ui/buttons/positive}}
+
+  {{#vt-ui/buttons/negative
+    onClick=(action 'back')
+  }}
+    {{vt-ui/fa-icon icon='arrow-left'}}
+    Back
+  {{/vt-ui/buttons/negative}}
+</div>

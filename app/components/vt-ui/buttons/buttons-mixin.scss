@@ -3,6 +3,7 @@
   border: 0;
   @include border-radius(3px);
   @include transitions-all;
+  outline:none;
 }
 
 @mixin green-button() {
