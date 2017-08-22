@@ -57,4 +57,11 @@
       padding: 0 15px 30px;
     }
   }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
 }
