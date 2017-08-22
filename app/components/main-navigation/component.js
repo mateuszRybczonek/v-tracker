@@ -26,5 +26,9 @@ export default Component.extend({
         this.get('router').transitionTo('login');
       });
     },
+
+    transitionToVessels() {
+      this.get('router').transitionTo('user.vessels');
+    }
   },
 });
