@@ -1,0 +1,41 @@
+{{#vt-ui/buttons/negative-small
+onClick=(action 'showPrompt' vessel)
+}}
+  {{#vt-typography/subheaders/small}}
+    {{vt-ui/fa-icon icon='trash-o'}}
+    Delete
+  {{/vt-typography/subheaders/small}}
+{{/vt-ui/buttons/negative-small}}
+
+{{#if showPromptDialog}}
+  {{#paper-dialog
+    fullscreen=fullscreen
+    onClose=(action "closePromptDialog" certificate)
+    origin=dialogOrigin
+  }}
+    <div id="paper-wormhole"></div>
+
+    {{#paper-dialog-content}}
+      {{#vt-typography/headers/heading-h3}}
+        Are you sure you want to delete the vessel?
+      {{/vt-typography/headers/heading-h3}}
+      {{#vt-typography/headers/heading-h4}}
+        Vessel name: {{vessel.name}}
+      {{/vt-typography/headers/heading-h4}}
+    {{/paper-dialog-content}}
+
+    {{#paper-dialog-actions class="layout-row"}}
+      <span class="flex"></span>
+      {{#paper-button
+        primary=true
+        onClick=(action "closePromptDialog" "cancel")}}
+          Cancel
+      {{/paper-button}}
+      {{#paper-button
+        primary=true
+        onClick=(action "deleteVessel" vessel)}}
+          Delete
+      {{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}

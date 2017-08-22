@@ -21,7 +21,6 @@ export default Route.extend({
     saveVessel(newVessel) {
       let user = this.controller.get('model.user');
       newVessel.get('users').pushObject(user);
-      debugger;
       newVessel.save().then(() => {
         user.get('vessels').pushObject(newVessel);
         user.save();

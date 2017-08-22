@@ -9,6 +9,9 @@ export default Component.extend({
   storageRef: '',
   file: '',
   router: service('-routing'),
+  store: service(),
+
+  showPromptDialog: false,
 
   imagePath: computed('vessel', 'session.currentUser.uid', function() {
     const vesselId = this.get('vessel.id');

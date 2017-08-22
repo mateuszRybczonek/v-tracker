@@ -8,8 +8,12 @@ export default DS.Model.extend({
   users: hasMany('user'),
 
   name: DS.attr('string'),
-  imoNumber: DS.attr('string'),
+  imoNumber: DS.attr('number'),
+  callsign: DS.attr('string'),
+  MMSI: DS.attr('number'),
   flag: DS.attr('string'),
+  GT: DS.attr('number'),
+  yearBuild: DS.attr('number'),
   updatedAt: DS.attr('date', { defaultValue: new Date()}),
 
   isNameValid: computed.notEmpty('name'),

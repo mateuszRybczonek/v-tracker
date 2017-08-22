@@ -20,6 +20,38 @@
 
 {{paper-input
   class=form-control
+  label="Callsign"
+  value=vessel.callsign
+  onChange=(action (mut vessel.callsign))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="MMSI"
+  value=vessel.MMSI
+  onChange=(action (mut vessel.MMSI))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="GT"
+  value=vessel.GT
+  onChange=(action (mut vessel.GT))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="Year build"
+  value=vessel.yearBuild
+  onChange=(action (mut vessel.yearBuild))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
   label="Flag"
   value=vessel.flag
   onChange=(action (mut vessel.flag))
