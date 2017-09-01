@@ -6,6 +6,7 @@ const { computed } = Ember;
 
 export default DS.Model.extend({
   users: hasMany('user'),
+  positionReports: hasMany('position-report'),
 
   name: DS.attr('string'),
   imoNumber: DS.attr('number'),

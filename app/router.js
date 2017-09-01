@@ -14,6 +14,10 @@ Router.map(function() {
       this.route('edit', { path: '/:vessel_id/edit' });
       this.route('details', {path: '/:vessel_id'});
     });
+    this.route('reports', function() {
+      this.route('new');
+      this.route('edit', { path: '/:report_id/edit' });
+    });
   });
 });
 
