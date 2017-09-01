@@ -12,6 +12,8 @@
   value=report.reportTime
   customValidations=dateValidation
   onChange=(action (mut report.reportTime))
+  required=true
+  errorMessages=(hash required="Report date is required.")
 }}
 
 {{paper-input

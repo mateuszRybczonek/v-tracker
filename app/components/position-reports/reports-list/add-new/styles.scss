@@ -1,0 +1,48 @@
+& {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  width: 350px;
+  padding: 0;
+  text-align: center;
+  @include transitions-all();
+  @include border-radius(5);
+  @include box-shadow(0 0 100px 1px rgba(0,0,0,0.1));
+
+  &:hover {
+    @include box-shadow(0 0 20px 1px rgba(0,0,0,0.2));
+    transform: scale(1.05);
+  }
+
+  > a {
+    width: 100%;
+  }
+
+  @media all and (max-width: $phone) {
+    width: 100%;
+    @include border-radius(0);
+    @include box-shadow(0 0 0 0 #fff);
+    border: solid 1px $color-whitey;
+
+    &:hover {
+      @include box-shadow(0 0 0 0 #FFF);
+      transform: scale(1);
+    }
+  }
+
+  .add-new-vessel-icon {
+    height: 130px;
+    width: 100%;
+    padding-top: 20px;
+    color: $color-font-light-grey;
+
+    @include font(40px, 600);
+
+    @media all and (max-width: $phone) {
+      height: 200px;
+      padding-top: 30px;
+    }
+  }
+}

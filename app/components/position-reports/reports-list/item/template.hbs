@@ -1,0 +1,22 @@
+<div class="report" onClick={{action 'transitionToReportDetails' report.id}}>
+  {{#vt-typography/subheaders/small}}
+    {{report.reportTime}}
+  {{/vt-typography/subheaders/small}}
+</div>
+
+<div class="buttons">
+  {{#vt-ui/buttons/negative-small
+    onClick=(action 'transitionToEdit' report.id)
+  }}
+    {{#vt-typography/subheaders/small}}
+      {{vt-ui/fa-icon icon='edit'}}
+      Edit
+    {{/vt-typography/subheaders/small}}
+  {{/vt-ui/buttons/negative-small}}
+
+  {{position-reports/reports-list/item/button-delete
+    report=report
+    session=session
+  }}
+</div>
+

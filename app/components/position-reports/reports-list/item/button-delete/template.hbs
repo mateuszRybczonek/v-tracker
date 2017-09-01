@@ -1,5 +1,5 @@
 {{#vt-ui/buttons/negative-small
-onClick=(action 'showPrompt' vessel)
+  onClick=(action 'showPrompt' report)
 }}
   {{#vt-typography/subheaders/small}}
     {{vt-ui/fa-icon icon='trash-o'}}
@@ -10,17 +10,17 @@ onClick=(action 'showPrompt' vessel)
 {{#if showPromptDialog}}
   {{#paper-dialog
     fullscreen=fullscreen
-    onClose=(action "closePromptDialog" vessel)
+    onClose=(action "closePromptDialog" report)
     origin=dialogOrigin
   }}
     <div id="paper-wormhole"></div>
 
     {{#paper-dialog-content}}
       {{#vt-typography/headers/heading-h3}}
-        Are you sure you want to delete the vessel?
+        Are you sure you want to delete the report?
       {{/vt-typography/headers/heading-h3}}
       {{#vt-typography/headers/heading-h4}}
-        Vessel name: {{vessel.name}}
+        Report date: {{report.reportTime}}
       {{/vt-typography/headers/heading-h4}}
     {{/paper-dialog-content}}
 
@@ -33,7 +33,7 @@ onClick=(action 'showPrompt' vessel)
       {{/paper-button}}
       {{#paper-button
         primary=true
-        onClick=(action "deleteVessel" vessel)}}
+        onClick=(action "deleteReport" report)}}
           Delete
       {{/paper-button}}
     {{/paper-dialog-actions}}

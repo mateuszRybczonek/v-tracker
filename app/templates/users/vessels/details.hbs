@@ -1,1 +1,8 @@
-{{vessel.name}}
+{{#vt-typography/headers/heading-h5}}
+  {{vessel.name}}
+{{/vt-typography/headers/heading-h5}}
+
+{{position-reports/reports-list
+  reports=vessel.positionReports
+  vesselId=vessel.id
+}}

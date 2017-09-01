@@ -41,5 +41,9 @@ export default Component.extend({
     transitionToEdit() {
       this.get('router').transitionTo('users.vessels.edit', [this.get('vessel.id')]);
     },
+
+    transitionToVesselDetails(param) {
+      this.get('router').transitionTo('users.vessels.details', [param]);
+    }
   },
 });

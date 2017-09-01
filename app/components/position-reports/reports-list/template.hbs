@@ -1,0 +1,8 @@
+{{#each reports as |report|}}
+  {{position-reports/reports-list/item
+    report=report
+    session=session
+  }}
+{{/each}}
+
+{{position-reports/reports-list/add-new vesselId=vesselId}}
