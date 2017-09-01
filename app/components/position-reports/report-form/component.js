@@ -19,7 +19,7 @@ export default Component.extend({
 
   actions: {
     back() {
-      this.get('router').transitionTo('users.vessels');
+      this.get('router').transitionTo('users.vessels.details', [this.get('report.vessel.id')]);
     },
   },
 });
