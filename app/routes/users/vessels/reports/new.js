@@ -30,7 +30,7 @@ export default Route.extend({
       newReport.save().then(() => {
         vessel.get('positionReports').pushObject(newReport);
         vessel.save();
-        this.transitionTo('users.reports');
+        this.transitionTo('users.vessels.details', vessel.get('id'));
       });
     },
 
