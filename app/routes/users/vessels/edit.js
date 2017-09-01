@@ -4,8 +4,8 @@ const { Route } = Ember;
 
 export default Route.extend({
 
-  model(params) {
-    return this.store.findRecord('vessel', params.vessel_id);
+  model( {vessel_id} ) {
+    return this.store.findRecord('vessel', vessel_id);
   },
 
   setupController(controller, model) {
