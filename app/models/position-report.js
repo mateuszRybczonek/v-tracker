@@ -1,4 +1,8 @@
 import DS from 'ember-data';
+import Ember from 'ember';
+import { belongsTo } from 'ember-data/relationships';
+
+const { computed } = Ember;
 
 export default DS.Model.extend({
   vessel: belongsTo('vessel'),
