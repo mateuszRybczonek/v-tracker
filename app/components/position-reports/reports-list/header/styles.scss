@@ -10,10 +10,6 @@
   @include border-radius(5);
   border: solid 1px $color-whitey;
 
-  &:hover {
-    background-color: $color-whitey-lighter;
-  }
-
   @media all and (max-width: $phone) {
     padding: 0;
     @include border-radius(0);

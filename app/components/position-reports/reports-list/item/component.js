@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Component, computed, inject: { service } } = Ember;
+const { Component, inject: { service } } = Ember;
 
 export default Component.extend({
   classNames: ['reports-list-item'],

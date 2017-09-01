@@ -8,7 +8,7 @@ export default DS.Model.extend({
   vessel: belongsTo('vessel'),
 
   updatedAt: DS.attr('date', { defaultValue: new Date()}),
-  reportTime: DS.attr('date'),
+  reportTime: DS.attr(),
   lat: DS.attr('number'),
   lng: DS.attr('number'),
   course: DS.attr('number'),
