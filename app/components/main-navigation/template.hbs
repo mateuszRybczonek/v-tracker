@@ -8,6 +8,14 @@
     label='Vessels'
     icon='ship'
   }}
-  {{main-navigation/item click=(action 'signOut') label='Reports' icon='file-text-o'}}
-  {{main-navigation/item click=(action 'signOut') label='Log out' icon='power-off'}}
+  {{main-navigation/item
+    click=(action 'transitionToReports')
+    label='Reports'
+    icon='file-text-o'
+  }}
+  {{main-navigation/item
+    click=(action 'signOut')
+    label='Log out'
+    icon='power-off'
+  }}
 </ul>

@@ -1,0 +1,8 @@
+{{#vt-typography/headers/heading-h4 class='vessel-name'}}
+  {{vessel.name}}
+{{/vt-typography/headers/heading-h4}}
+
+{{position-reports
+  reports=vessel.positionReports
+  vesselId=vessel.id
+}}

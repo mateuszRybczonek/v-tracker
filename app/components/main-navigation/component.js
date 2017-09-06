@@ -28,7 +28,11 @@ export default Component.extend({
     },
 
     transitionToVessels() {
-      this.get('router').transitionTo('user.vessels');
+      this.get('router').transitionTo('users.vessels');
+    },
+
+    transitionToReports() {
+      this.get('router').transitionTo('users.reports');
     }
   },
 });
