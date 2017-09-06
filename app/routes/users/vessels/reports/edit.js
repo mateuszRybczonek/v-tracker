@@ -4,29 +4,28 @@ const { Route } = Ember;
 
 export default Route.extend({
 
-  model( {vessel_id} ) {
-    return this.store.findRecord('vessel', vessel_id);
+  model( {position_report_id} ) {
+    return this.store.findRecord('position-report', position_report_id);
   },
 
   setupController(controller, model) {
     this._super(controller, model);
 
-    controller.set('vessel', model);
+    controller.set('report', model);
   },
 
-  renderTemplate() {
-    this.render('users/vessels/new');
+  renderTemplate( {position_report_id} ) {
+    this.render('users/vessels/reports/new', position_report_id);
   },
 
   actions: {
-    saveVessel(newVessel) {
-      newVessel.updatedAt = new Date();
-      newVessel.save().then(() => this.transitionTo('users.vessels'));
+    saveReport(report) {
+      report.updatedAt = new Date();
+      report.save().then(() => this.transitionTo('users.vessels.details', report.get('vessel.id')));
     },
 
     willTransition(transition) {
-
-      let model = this.controller.get('model');
+      const model = this.controller.get('report');
 
       if (model.get('hasDirtyAttributes')) {
         let confirmation = confirm("Your changes haven't saved yet. Would you like to leave this form?");

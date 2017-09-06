@@ -1,15 +1,17 @@
-<div class="image">
-  <img src={{imageUrl}}>
+<div class="details" onClick={{action 'transitionToVesselDetails' vessel.id}}>
+  <div class="image">
+    <img src={{imageUrl}}>
+  </div>
+
+  {{#vt-typography/subheaders/small}}
+    {{vessel.name}}
+  {{/vt-typography/subheaders/small}}
+
+  {{#vt-typography/subheaders/small}}
+    IMO number:
+    {{vessel.imoNumber}}
+  {{/vt-typography/subheaders/small}}
 </div>
-
-{{#vt-typography/subheaders/small}}
-  {{vessel.name}}
-{{/vt-typography/subheaders/small}}
-
-{{#vt-typography/subheaders/small}}
-  IMO number:
-  {{vessel.imoNumber}}
-{{/vt-typography/subheaders/small}}
 
 <div class="buttons">
   {{#vt-ui/buttons/negative-small

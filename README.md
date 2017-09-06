@@ -1,6 +1,6 @@
 V-tracker
 
-Vessel reportonig and tracking app.
+Vessel reporting and tracking app.
 
 It uses ember.js as a frontend framework and firebase service to deal with backend and db.
 

@@ -1,0 +1,18 @@
+{{#vt-typography/headers/heading-h5 class='header'}}
+  Position reports:
+{{/vt-typography/headers/heading-h5}}
+
+<div class="reports-list">
+  {{position-reports/reports-list/header}}
+
+  {{#each reports as |report|}}
+    {{position-reports/reports-list/item
+      report=report
+      session=session
+    }}
+  {{/each}}
+
+  {{position-reports/reports-list/add-new
+    vesselId=vesselId
+  }}
+</div>

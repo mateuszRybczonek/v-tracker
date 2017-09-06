@@ -1,0 +1,30 @@
+& {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  @include transitions-all();
+  @include border-radius(5);
+  border: solid 1px $color-whitey;
+
+  &:hover {
+    background-color: $color-whitey-lighter;
+  }
+
+  @media all and (max-width: $phone) {
+    padding: 0;
+    @include border-radius(0);
+  }
+
+  .report {
+    width: 90%;
+    text-align: left;
+  }
+  .buttons {
+    display: flex;
+    width: 90px;
+  }
+}

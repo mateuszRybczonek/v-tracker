@@ -6,15 +6,25 @@ export default Route.extend({
   model() {
     const currentUserUID = this.get('session.currentUser.uid');
     const user = this.store.peekRecord('user', currentUserUID);
+    
+    const allReports = [];
 
-    return user.get('vessels').then( vessels  => vessels);
+    user.get('vessels').then(vessels => {
+      vessels.forEach(vessel => {
+        vessel.get('reports').then(reports => {
+          allReports.push(...reports)
+        })
+      });
+    });
+
+    return allReports;
   },
 
   setupController(controller, model) {
     this._super(controller, model);
 
     controller.setProperties({
-      vessels: model,
+      reports: model,
     });
   },
 });

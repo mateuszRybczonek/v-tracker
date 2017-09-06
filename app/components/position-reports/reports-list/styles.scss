@@ -1,0 +1,18 @@
+& {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  .reports-list-item {
+    min-height: 54px;
+    margin: 0;
+  }
+
+  @media all and (max-width: $phone) {
+    flex-direction: column;
+
+    .header, .reports-list-item {
+      padding: 0 15px;
+    }
+  }
+}

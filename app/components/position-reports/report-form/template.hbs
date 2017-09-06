@@ -1,0 +1,163 @@
+{{#vt-typography/headers/heading-h5}}
+  Create new Position Report for:
+{{/vt-typography/headers/heading-h5}}
+
+{{#vt-typography/headers/heading-h5}}
+  {{vessel.name}}
+{{/vt-typography/headers/heading-h5}}
+
+{{paper-input
+  label="Date of report (dd/mm/yyyy)"
+  type="date"
+  value=report.reportTime
+  customValidations=dateValidation
+  onChange=(action (mut report.reportTime))
+  required=true
+  errorMessages=(hash required="Report date is required.")
+}}
+
+{{paper-input
+  class=form-control
+  label="Latitude"
+  value=report.lat
+  onChange=(action (mut report.lat))
+  required=true
+  errorMessages=(hash required="Latitude is required.")
+}}
+
+{{paper-input
+  class=form-control
+  label="Longitude"
+  value=report.lng
+  onChange=(action (mut report.lng))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Present course"
+  value=report.course
+  onChange=(action (mut report.course))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Wind direction"
+  value=report.windDir
+  onChange=(action (mut report.windDir))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Wind speed"
+  value=report.windSpd
+  onChange=(action (mut report.windSpd))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Sea State"
+  value=report.seaState
+  onChange=(action (mut report.seaState))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Swell Direction"
+  value=report.swellDir
+  onChange=(action (mut report.swellDir))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Swell Height"
+  value=report.swellHeight
+  onChange=(action (mut report.swellHeight))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Pitch"
+  value=report.pitch
+  onChange=(action (mut report.pitch))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="Roll"
+  value=report.roll
+  onChange=(action (mut report.roll))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="FO"
+  value=report.foRob
+  onChange=(action (mut report.foRob))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="DO"
+  value=report.doRob
+  onChange=(action (mut report.doRob))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="FW"
+  value=report.fwRob
+  onChange=(action (mut report.fwRob))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="POB"
+  value=report.pob
+  onChange=(action (mut report.pob))
+  required=true
+}}
+
+{{paper-input
+  class=form-control
+  label="ETA to Next WPT"
+  value=report.etaToNextWpt
+  onChange=(action (mut report.etaToNextWpt))
+  required=false
+}}
+
+{{paper-input
+  class=form-control
+  label="ETA to destination"
+  value=report.etaToDestination
+  onChange=(action (mut report.etaToDestination))
+  required=false
+}}
+
+<div class="bottom-row">
+  {{#vt-ui/buttons/positive
+    onClick=(route-action 'saveReport' report)
+    disabled=isInvalid
+  }}
+    {{vt-ui/fa-icon icon='save'}}
+    Save
+  {{/vt-ui/buttons/positive}}
+
+  {{#vt-ui/buttons/negative
+    onClick=(action 'back')
+  }}
+    {{vt-ui/fa-icon icon='arrow-left'}}
+    Back
+  {{/vt-ui/buttons/negative}}
+</div>
