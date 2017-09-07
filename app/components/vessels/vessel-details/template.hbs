@@ -2,6 +2,10 @@
   {{vessel.name}}
 {{/vt-typography/headers/heading-h4}}
 
+{{vessels/vessel-details/google-map
+  reports=vessel.positionReports
+}}
+
 {{position-reports
   reports=vessel.positionReports
   vesselId=vessel.id

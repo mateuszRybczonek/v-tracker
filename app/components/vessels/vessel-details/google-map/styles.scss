@@ -1,0 +1,11 @@
+.map {
+  height: 455px;
+
+  @media all and (max-width: $phone) {
+    height: 315px;
+  }
+
+  .gm-style {
+    z-index: auto;
+  }
+}
