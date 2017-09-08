@@ -25,6 +25,7 @@ export default Component.extend({
         const { lat, lng } = report.data;
         points.push({ lat, lng});
       });
+
       return points;
     }
   }),
@@ -43,7 +44,7 @@ export default Component.extend({
 
         const depLat = report.data.lat;
         const depLng = report.data.lng;
-        const arrLat = nextReport.data.lng;
+        const arrLat = nextReport.data.lat;
         const arrLng = nextReport.data.lng;
 
         lines.push({
@@ -52,7 +53,7 @@ export default Component.extend({
         });
       });
     }
-    console.log(lines);
+
     return lines;
   }),
 

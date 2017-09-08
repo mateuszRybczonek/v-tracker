@@ -8,7 +8,7 @@
     margin: 0;
   }
 
-  @media all and (max-width: $phone) {
+  @media all and (max-width: $tablet) {
     flex-direction: column;
 
     .header, .reports-list-item {

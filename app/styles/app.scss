@@ -37,8 +37,8 @@ a {
 
   padding: 50px 20%;
 
-  @media all and (max-width: $phone) {
-    padding: 90px 0%;
+  @media all and (max-width: $tablet) {
+    padding: 90px 0;
   }
 }
 
