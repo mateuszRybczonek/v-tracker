@@ -5,7 +5,6 @@ const { Component, inject: { service } } = Ember;
 export default Component.extend({
   classNames: ['reports-list-item'],
   router: service('-routing'),
-  store: service(),
 
   showPromptDialog: false,
 

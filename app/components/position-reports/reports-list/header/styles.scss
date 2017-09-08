@@ -16,8 +16,13 @@
   }
 
   .report {
+    display: flex;
     width: 90%;
     text-align: left;
+
+    & > div {
+      width: 140px;
+    }
   }
   .buttons {
     display: flex;
