@@ -3,30 +3,57 @@ import {
   getMapConfiguration,
   POINT_MARKER_CONFIG,
   POINT_MARKER_ICON_CONFIG,
-  // LINE_PATH_CONFIG,
+  LINE_PATH_CONFIG,
   MIN_ZOOM_PARAMS,
 } from './map-configuration';
 
-const { Component, computed, inject: { service }, observer } = Ember;
+const { Component, computed, inject: { service }, observer, run } = Ember;
 
 export default Component.extend({
   screen: service(),
   lazyLoader: service(),
 
   librariesLoading: true,
-  addedPoints: null,
-  // addedLines: null,
   map: null,
 
   points: computed('reports', function() {
     const points = [];
-    this.get('reports').forEach( report => {
-      points.push({ lat: report.get('lat'), lng: report.get('lng') })
-      console.log(points);
+    const reports = this.get('reports');
 
-    });
+    if (reports.get('length') > 0) {
+      reports.forEach( report => {
+        const { lat, lng } = report.data;
+        points.push({ lat, lng});
+      });
+      return points;
+    }
+  }),
 
-    return points;
+  lines: computed('reports', function() {
+    const lines = [];
+    const reports = this.get('reports');
+
+    if (reports.get('length') > 0) {
+      reports.forEach( (report, index) => {
+        const nextReport = reports.objectAt(index + 1);
+
+        if (nextReport === undefined) {
+          return;
+        }
+
+        const depLat = report.data.lat;
+        const depLng = report.data.lng;
+        const arrLat = nextReport.data.lng;
+        const arrLng = nextReport.data.lng;
+
+        lines.push({
+          departure: { lat: depLat, lng: depLng },
+          arrival: { lat: arrLat, lng: arrLng },
+        });
+      });
+    }
+    console.log(lines);
+    return lines;
   }),
 
   onScreenChanged: observer('screen.width', function() {
@@ -39,11 +66,6 @@ export default Component.extend({
     this._super(...arguments);
 
     this._forceScreenResolutionObservers();
-
-    this.setProperties({
-      addedPoints: { },
-      // addedLines: { },
-    });
   },
 
   didInsertElement() {
@@ -60,13 +82,15 @@ export default Component.extend({
     const map = new (this.get('mapsAPI')).Map(this.$('.map').get(0), getMapConfiguration());
     this.set('map', map);
 
-    this.updateMap();
+    run.later((() => {
+      this.updateMap();
+    }), 500);
   },
 
   updateMap() {
     this.addPoints(this.get('points'));
 
-    // this.addLines(this.get('lines'));
+    this.addLines(this.get('lines'));
 
     this._setMinZoom(this.get('screen.width'));
     this.setBounds();
@@ -81,50 +105,35 @@ export default Component.extend({
   },
 
   addPoints(pointsData) {
-    const addedPoints = this.get('addedPoints');
+    if(pointsData === undefined) {
+      return;
+    }
 
     Object.keys(pointsData).forEach(key => {
-      if (addedPoints[key]) {
-        return;
-      }
-
       const marker = new (this.get('mapsAPI')).Marker(this._createPointMarkerParams(
         pointsData[key].lat,
         pointsData[key].lng,
       ));
 
       marker.setMap(this.get('map'));
-
-      addedPoints[key] = true;
     });
   },
 
-  // addLines(linesData) {
-  //   const addedLines = this.get('addedLines');
-  //
-  //   Object.keys(linesData).forEach(key => {
-  //     if (addedLines[key]) {
-  //       return;
-  //     }
-  //
-  //     const { dep_lat, dep_lng, arr_lat, arr_lng } = linesData[key];
-  //
-  //     const line = new (this.get('mapsAPI')).Polyline(this._createLinePathParams(
-  //       {
-  //         lat: dep_lat,
-  //         lng: dep_lng,
-  //       }, {
-  //         lat: arr_lat,
-  //         lng: arr_lng,
-  //       },
-  //       eligiblityType,
-  //     ));
-  //
-  //     line.setMap(this.get('map'));
-  //
-  //     addedLines[key] = true;
-  //   });
-  // },
+  addLines(linesData) {
+    if(linesData === undefined) {
+      return;
+    }
+
+    Object.keys(linesData).forEach(key => {
+      const { departure, arrival } = linesData[key];
+
+      const line = new (this.get('mapsAPI')).Polyline(
+        this._createLinePathParams(departure, arrival)
+      );
+
+      line.setMap(this.get('map'));
+    });
+  },
 
   _createPointMarkerParams(lat, lng) {
     return Object.assign(POINT_MARKER_CONFIG, {
@@ -135,18 +144,18 @@ export default Component.extend({
     });
   },
 
-  // _createLinePathParams(departure, arrival) {
-  //   return Object.assign(LINE_PATH_CONFIG, {
-  //     path: [{
-  //       lat: departure.lat,
-  //       lng: departure.lng,
-  //     }, {
-  //       lat: arrival.lat,
-  //       lng: arrival.lng,
-  //     }],
-  //   });
-  // },
-  //
+  _createLinePathParams(departure, arrival) {
+    return Object.assign(LINE_PATH_CONFIG, {
+      path: [{
+        lat: departure.lat,
+        lng: departure.lng,
+      }, {
+        lat: arrival.lat,
+        lng: arrival.lng,
+      }],
+    });
+  },
+
 
   _getPointsBounds() {
     const latCoordintes = this.get('points').map(point => point.lat);
