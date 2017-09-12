@@ -3,7 +3,7 @@ import Ember from 'ember';
 const { Service, RSVP, inject: { service }, run } = Ember;
 
 /* eslint-disable max-len */
-const GOOGLE_MAP_URL = '//maps.google.com/maps/api/js?v=3.23&sensor=false&client=&key=AIzaSyDW6YhPZQnLLwVsxDCB68eoFxRdOOKllVE&libraries=geometry';
+const GOOGLE_MAP_URL = '//maps.google.com/maps/api/js?v=3.23&sensor=false&client=&key=AIzaSyAcpHQzH108aO_4Ea9cS4zT5PTBqpopd8Q&libraries=geometry';
 /* eslint-enable max-len */
 
 export default Service.extend({
