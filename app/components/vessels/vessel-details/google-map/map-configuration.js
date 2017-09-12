@@ -1,9 +1,9 @@
 import colorPalette from '../../../../constants/color-palette';
 
-const { COLOR_CARIBBEAN_GREEN, COLOR_WATER, COLOR_LANDSCAPE } = colorPalette;
+const { COLOR_GREEN, COLOR_WATER, COLOR_LANDSCAPE } = colorPalette;
 
 const COLORS = {
-  POINT: COLOR_CARIBBEAN_GREEN,
+  POINT: COLOR_GREEN,
   LINE: '#FFFFFF',
   WATER: COLOR_WATER,
   LANDSCAPE: COLOR_LANDSCAPE,
