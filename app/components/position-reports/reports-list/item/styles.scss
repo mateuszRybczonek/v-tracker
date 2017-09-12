@@ -23,9 +23,15 @@
     display: flex;
     width: 90%;
     text-align: left;
+    align-items: center;
 
     & > div {
       width: 140px;
+      margin: 0;
+    }
+
+    .position > div {
+      margin: 0;
     }
   }
 
