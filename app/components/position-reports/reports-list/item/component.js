@@ -6,6 +6,7 @@ const { Component, computed, inject: { service } } = Ember;
 export default Component.extend({
   classNames: ['reports-list-item'],
   router: service('-routing'),
+  screen: service(),
 
   showPromptDialog: false,
 
@@ -17,6 +18,11 @@ export default Component.extend({
     return decimalToDMS(this.get('report').data.lng, false);
   }),
 
+  dateFormatted: computed('screen.largerThanTablet', 'report.reportTime', function() {
+    const date = this.get('report.reportTime');
+    return this.get('screen.largerThanTablet') ? date : date.slice(5);
+  }),
+
   actions: {
     transitionToEdit(param) {
       this.get('router').transitionTo('users.vessels.reports.edit', [param]);
@@ -26,6 +32,4 @@ export default Component.extend({
       this.get('router').transitionTo('users.vessels.reports.details', [param]);
     }
   },
-
-
 });

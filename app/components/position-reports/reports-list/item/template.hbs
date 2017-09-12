@@ -1,15 +1,26 @@
 <div class="report" onClick={{action 'transitionToReportDetails' report.id}}>
   {{#vt-typography/subheaders/small}}
-    {{report.reportTime}}
+    {{dateFormatted}}
   {{/vt-typography/subheaders/small}}
-  <div class="position">
-    {{#vt-typography/subheaders/small}}
-      {{lat}}
-    {{/vt-typography/subheaders/small}}
-    {{#vt-typography/subheaders/small}}
-      {{lng}}
-    {{/vt-typography/subheaders/small}}
-  </div>
+  {{#if screen.largerThanTablet}}
+    <div class="position">
+      {{#vt-typography/subheaders/small}}
+        {{lat}}
+      {{/vt-typography/subheaders/small}}
+      {{#vt-typography/subheaders/small}}
+        {{lng}}
+      {{/vt-typography/subheaders/small}}
+    </div>
+  {{/if}}
+  {{#vt-typography/subheaders/small}}
+  {{report.foRob}}
+  {{/vt-typography/subheaders/small}}
+  {{#vt-typography/subheaders/small}}
+    {{report.doRob}}
+  {{/vt-typography/subheaders/small}}
+  {{#vt-typography/subheaders/small}}
+    {{report.fwRob}}
+  {{/vt-typography/subheaders/small}}
 </div>
 
 <div class="buttons">
