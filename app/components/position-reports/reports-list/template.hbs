@@ -5,7 +5,7 @@
 <div class="reports-list">
   {{position-reports/reports-list/header}}
 
-  {{#each reports as |report|}}
+  {{#each sortedReports as |report|}}
     {{position-reports/reports-list/item
       report=report
       session=session

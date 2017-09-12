@@ -34,11 +34,13 @@ a {
 .content-inner {
   height: 50%;
   overflow-y: auto;
+  max-width: 1280px;
+  margin: 0 auto;
 
-  padding: 50px 20%;
+  padding: 100px 0;
 
-  @media all and (max-width: $phone) {
-    padding: 90px 0%;
+  @media all and (max-width: $tablet) {
+    padding: 90px 0;
   }
 }
 

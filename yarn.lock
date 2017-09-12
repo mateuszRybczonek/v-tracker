@@ -2805,6 +2805,12 @@ ember-runtime-enumerable-includes-polyfill@^2.0.0:
     ember-cli-babel "^6.0.0"
     ember-cli-version-checker "^1.1.6"
 
+ember-screen@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ember-screen/-/ember-screen-0.2.0.tgz#41e9aac260b60ec2a84093d89daf9e7351e47558"
+  dependencies:
+    ember-cli-babel "^5.1.5"
+
 ember-sinon@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/ember-sinon/-/ember-sinon-0.7.0.tgz#41b83b5b1c71626db26e8ffb4a52cdab9c039a29"
