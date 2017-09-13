@@ -3,10 +3,14 @@
 {{/vt-typography/headers/heading-h4}}
 
 {{vessels/vessel-details/google-map
-  reports=vessel.positionReports
+  reports=sortedReports
+}}
+
+{{vessels/vessel-details/mini-stats
+  report=lastReport
 }}
 
 {{position-reports
-  reports=vessel.positionReports
+  reports=sortedReports
   vesselId=vessel.id
 }}
