@@ -9,27 +9,27 @@ export default Component.extend({
       return [
         {
           iconName: 'local-gas-station',
-          header: this.get('report.foRob'),
+          header: `${this.get('report.foRob')} cbm`,
           description: 'Remaining FO',
           customClass: 'icon-fo',
         },
         {
           iconName: 'local-gas-station',
-          header: this.get('report.doRob'),
+          header: `${this.get('report.doRob')} cbm`,
           description: 'Remaining DO',
           customClass: 'icon-do',
         },
         {
           iconName: 'local-drink',
-          header: this.get('report.fwRob'),
+          header: `${this.get('report.fwRob')} cbm`,
           description: 'Remaining FW',
           customClass: 'icon-fw',
         },
         {
-          iconName: 'directions-boat',
-          header: this.get('report.foRob'),
-          description: 'Distance last 24 hours',
-          customClass: 'icon-distance'
+          iconName: 'person-pin',
+          header: `${this.get('report.pob')}`,
+          description: 'POB',
+          customClass: 'icon-pob'
         },
       ];
     }

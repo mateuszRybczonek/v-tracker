@@ -1,4 +1,4 @@
-$icon-dimensions: 48px;
+$icon-dimensions: 70px;
 
 & {
   display: flex;
@@ -16,7 +16,7 @@ $icon-dimensions: 48px;
   md-icon {
     width: $icon-dimensions;
     height: $icon-dimensions;
-    font-size: 20px;
+    font-size: 40px;
     line-height: $icon-dimensions;
     text-align: center;
     color: #FFF;
@@ -25,7 +25,7 @@ $icon-dimensions: 48px;
     &.icon-fo { background-color: $color-black; }
     &.icon-do { background-color: $color-brown; }
     &.icon-fw { background-color: $color-blue; }
-    &.icon-distance { background-color: $color-green; }
+    &.icon-pob { background-color: $color-green; }
 
     @media all and (max-width: $tablet) {
       margin: 0 16px 0 0;
