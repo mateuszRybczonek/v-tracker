@@ -1,5 +1,5 @@
 export default {
   COLOR_GREEN: '#13DA93',
-  COLOR_LANDSCAPE: '#C4E1FE',
-  COLOR_WATER: '#2791FC',
+  COLOR_LANDSCAPE: '#FFF',
+  COLOR_WATER: '#C3E6FF',
 };

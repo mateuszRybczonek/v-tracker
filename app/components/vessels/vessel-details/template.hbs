@@ -1,12 +1,16 @@
-{{#vt-typography/headers/heading-h4 class='vessel-name'}}
+{{#vt-typography/headers/heading-h3 class='vessel-name'}}
   {{vessel.name}}
-{{/vt-typography/headers/heading-h4}}
+{{/vt-typography/headers/heading-h3}}
 
 {{vessels/vessel-details/google-map
-  reports=vessel.positionReports
+  reports=sortedReports
+}}
+
+{{vessels/vessel-details/mini-stats
+  report=lastReport
 }}
 
 {{position-reports
-  reports=vessel.positionReports
+  reports=sortedReports
   vesselId=vessel.id
 }}

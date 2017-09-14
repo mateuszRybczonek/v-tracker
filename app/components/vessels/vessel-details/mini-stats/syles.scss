@@ -1,0 +1,17 @@
+& {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 32px;
+
+  @media all and (min-width: $desktop) {
+    flex-flow: row wrap;
+  }
+
+  @media all and (max-width: $tablet) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+  }
+}

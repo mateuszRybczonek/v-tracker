@@ -31,4 +31,20 @@ function decimalToDMS(decimal, latitude = true, degrees = 0, minutes = 0, second
   return `${formattedDegree} ${formattedMinutes} ${direction}`;
 }
 
-export { decimalToDMS };
+function distanceBetweenPoints(depLat, depLng, arrLat, arrLng) {
+  const R = 6371e3;
+  const φ1 = depLat.toRadians();
+  const φ2 = arrLat.toRadians();
+  const Δφ = (arrLat-depLat).toRadians();
+  const Δλ = (arrLng-depLng).toRadians();
+
+  const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+    Math.cos(φ1) * Math.cos(φ2) *
+    Math.sin(Δλ/2) * Math.sin(Δλ/2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+  return R * c;
+}
+
+export { decimalToDMS, distanceBetweenPoints };
