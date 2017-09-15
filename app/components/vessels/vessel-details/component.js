@@ -3,9 +3,11 @@ import Ember from 'ember';
 const { Component, computed } = Ember;
 
 export default Component.extend({
-  reportsSortOrder: ['reportTime:desc'],
+  reportsSortOrderDesc: ['reportTime:desc'],
+  reportsSortOrderAsc: ['reportTime:asc'],
 
-  sortedReports: computed.sort('vessel.positionReports', 'reportsSortOrder'),
+  sortedReportsDesc: computed.sort('vessel.positionReports', 'reportsSortOrderDesc'),
+  sortedReportsAsc: computed.sort('vessel.positionReports', 'reportsSortOrderAsc'),
 
-  lastReport: computed.reads('sortedReports.firstObject')
+  lastReport: computed.reads('sortedReportsDesc.firstObject'),
 });

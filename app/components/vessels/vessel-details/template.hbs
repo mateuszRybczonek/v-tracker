@@ -3,14 +3,18 @@
 {{/vt-typography/headers/heading-h3}}
 
 {{vessels/vessel-details/google-map
-  reports=sortedReports
+  reports=sortedReportsDesc
 }}
 
 {{vessels/vessel-details/mini-stats
   report=lastReport
 }}
 
+{{vessels/vessel-details/distance-per-year-chart
+  data=sortedReportsAsc
+}}
+
 {{position-reports
-  reports=sortedReports
+  reports=sortedReportsDesc
   vesselId=vessel.id
 }}

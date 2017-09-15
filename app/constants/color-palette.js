@@ -2,4 +2,10 @@ export default {
   COLOR_GREEN: '#13DA93',
   COLOR_LANDSCAPE: '#FFF',
   COLOR_WATER: '#C3E6FF',
+  COLOR_MYSTIC: '#DAE2EB',
+  COLOR_MYSTIC_15: '#F9FAFC',
+  
+  COLOR_FO: '#000',
+  COLOR_DO: '#8B4513',
+  COLOR_FW: '#2791FC',
 };
