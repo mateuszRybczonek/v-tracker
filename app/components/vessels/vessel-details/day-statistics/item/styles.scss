@@ -1,0 +1,58 @@
+$icon-dimensions: 40px;
+
+& {
+  display: flex;
+
+  md-icon {
+    width: $icon-dimensions;
+    height: $icon-dimensions;
+    font-size: 20px;
+    line-height: $icon-dimensions;
+    text-align: center;
+    color: #FFF;
+    @include border-radius(50%);
+
+    &.icon-fo { background-color: $color-black; }
+    &.icon-do { background-color: $color-brown; }
+    &.icon-fw { background-color: $color-blue; }
+    &.icon-pob { background-color: $color-green; }
+
+    @media all and (max-width: $tablet) {
+      margin: 0 16px 0 0;
+    }
+  }
+
+  .description {
+    text-align: center;
+    margin-left: 20px;
+
+    @media all and (max-width: $tablet) {
+      text-align: left;
+      margin-top: 0;
+    }
+
+    .header {
+      @include font(28px, 600, 32px);
+      color: $color-font-grey;
+
+      @media all and (min-width: $tablet) {
+        margin-bottom: 5px;
+      }
+
+      @media all and (max-width: $tablet) {
+        @include font(42px, 600, 46px);
+      }
+    }
+
+    .text {
+      @include font(12px, 300);
+      color: $color-font-grey;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      @media all and (max-width: $tablet) {
+        font-size: 17px;
+      }
+    }
+  }
+}

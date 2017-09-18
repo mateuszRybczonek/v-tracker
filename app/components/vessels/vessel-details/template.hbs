@@ -12,6 +12,12 @@
 
 {{vessels/vessel-details/distance-per-year-chart
   data=sortedReportsAsc
+  onDayChange=(action (mut selectedDay))
+}}
+
+{{vessels/vessel-details/day-statistics
+  data=sortedReportsAsc
+  day=selectedDay
 }}
 
 {{position-reports

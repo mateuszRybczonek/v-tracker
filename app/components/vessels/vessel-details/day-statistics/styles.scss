@@ -1,0 +1,14 @@
+& {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1000px;
+  margin: 52px auto 78px;
+
+  @media all and (max-width: $phone) {
+    background-color: $color-font-grey;
+    padding: 0 15px 90px;
+    margin: -10px auto 0;
+    width: 100%;
+  }
+}

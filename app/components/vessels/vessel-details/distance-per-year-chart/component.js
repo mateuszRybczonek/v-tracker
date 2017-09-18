@@ -68,7 +68,7 @@ export default Component.extend(EventHandlersMixin, {
     const gridLayer = GridLayer.create({
       data: this.get('data'),
       svg: this.get('svg'),
-      selected: this.get('selectedYearIndex'),
+      selected: this.get('selectedDayIndex'),
     });
 
     gridLayer.on(GRID_LAYER_EVENTS.BAR_CLICK, this.get('_onBarClickBound'));
@@ -85,7 +85,8 @@ export default Component.extend(EventHandlersMixin, {
   },
 
   _onBarClick(index) {
-    this.set('selectedYearIndex', index);
-    this.get('onYearChange')(this.get('data')[index].year);
+    this.set('selectedDayIndex', index);
+    const day = this.get('data').objectAt(index).get('reportTime');
+    this.get('onDayChange')(day);
   },
 });

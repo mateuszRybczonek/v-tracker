@@ -1,0 +1,10 @@
+{{#if day}}
+  {{#each dayStatsItems as |item|}}
+    {{vessels/vessel-details/day-statistics/item
+      iconName=item.iconName
+      header=item.header
+      description=item.description
+      customClass=item.customClass
+    }}
+  {{/each}}
+{{/if}}
