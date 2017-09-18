@@ -46,9 +46,9 @@ export default Ember.Object.extend(Evented, {
       .x((data, index) => {
         switch (index) {
           case 0:
-            return xScale(new Date(data.get('reportTime'))) + 5;
+            return xScale(new Date(data.get('reportTime'))) + 3;
           case (this.get('data').length - 1):
-            return xScale(new Date(data.get('reportTime'))) - 5;
+            return xScale(new Date(data.get('reportTime'))) - 3;
           default:
             return xScale(new Date(data.get('reportTime')));
         }

@@ -1,8 +1,9 @@
 import colorPalette from 'v-tracker/constants/color-palette';
 
 const {
+  COLOR_FONT_GRAY,
   COLOR_GREEN,
-  COLOR_MYSTIC,
+  COLOR_GRID,
   COLOR_MYSTIC_15,
   COLOR_FO,
   COLOR_DO,
@@ -10,8 +11,9 @@ const {
 } = colorPalette;
 
 const COLORS = {
-  GRID: COLOR_MYSTIC,
+  GRID: COLOR_GRID,
   GRID_SELECTED: COLOR_MYSTIC_15,
+  GRIC_FONT: COLOR_FONT_GRAY,
   LABEL: COLOR_GREEN,
   FO: COLOR_FO,
   DO: COLOR_DO,

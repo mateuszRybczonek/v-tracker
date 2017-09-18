@@ -67,7 +67,7 @@ export default Ember.Object.extend(Evented, {
       .attr('height', '101%') // trick to hide top/bottom lines of rectangles
       .attr('fill', 'transparent')
       .attr('stroke', COLORS.GRID)
-      .attr('stroke-width', 2)
+      .attr('stroke-width', 1)
       .attr('y', '-1') // trick to hide top line of rectangles
       .attr('x', (distance, index) => barWidth * index)
       .on('click', function() { scope._onBarClick(this, ...arguments); })
@@ -94,7 +94,7 @@ export default Ember.Object.extend(Evented, {
       .attr('font-family', 'Roboto')
       .attr('font-size', '10px')
       .attr('font-weight', '400')
-      .attr('fill', COLORS.FO)
+      .attr('fill', COLORS.GRIC_FONT)
       .attr('x', (data, index) => (barWidth / 2) + barWidth * index)
       .attr('y', '320')
       .attr('text-anchor', 'middle');
