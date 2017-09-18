@@ -1,10 +1,16 @@
 {{#if day}}
-  {{#each dayStatsItems as |item|}}
-    {{vessels/vessel-details/day-statistics/item
-      iconName=item.iconName
-      header=item.header
-      description=item.description
-      customClass=item.customClass
-    }}
-  {{/each}}
+  {{#vt-typography/headers/heading-h3}}
+    Selected day data ({{day}})
+  {{/vt-typography/headers/heading-h3}}
+
+  <div class="day-stats-items">
+    {{#each dayStatsItems as |item|}}
+      {{vessels/vessel-details/day-statistics/item
+        iconName=item.iconName
+        header=item.header
+        description=item.description
+        customClass=item.customClass
+      }}
+    {{/each}}
+  </div>
 {{/if}}

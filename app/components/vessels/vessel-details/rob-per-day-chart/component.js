@@ -7,6 +7,8 @@ import CurveLayer from './curve-layer';
 const { Component, computed, run } = Ember;
 
 export default Component.extend(EventHandlersMixin, {
+  classNames: ['rob-per-day-chart'],
+
   svgWidth: computed('svg', function() {
     return this.get('svg').node().getBoundingClientRect().width;
   }),

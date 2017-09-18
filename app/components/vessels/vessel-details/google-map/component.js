@@ -10,6 +10,7 @@ import {
 const { Component, computed, inject: { service }, observer, run } = Ember;
 
 export default Component.extend({
+  classNames: ['google-map'],
   screen: service(),
   lazyLoader: service(),
 

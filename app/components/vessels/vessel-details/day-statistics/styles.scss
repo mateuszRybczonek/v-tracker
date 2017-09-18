@@ -1,14 +1,23 @@
 & {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1000px;
-  margin: 52px auto 78px;
+  padding: 0 32px;
+  text-align: center;
 
-  @media all and (max-width: $phone) {
-    background-color: $color-font-grey;
-    padding: 0 15px 90px;
-    margin: -10px auto 0;
-    width: 100%;
+  @media all and (max-width: $tablet) {
+    text-align: left;
+  }
+
+  .day-stats-items {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto 50px;
+
+    @media all and (max-width: $phone) {
+      background-color: $color-font-grey;
+      padding: 0 15px 90px;
+      margin: -10px auto 0;
+      width: 100%;
+    }
   }
 }
