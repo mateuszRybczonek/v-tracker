@@ -4,6 +4,8 @@ const { Component, computed } = Ember;
 
 export default Component.extend({
   classNames: ['mini-stats'],
+  
+  reportDate: computed.reads('report.reportTime'),
 
   miniStatsItems: computed('report', function() {
       return [

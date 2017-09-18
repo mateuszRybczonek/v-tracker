@@ -1,8 +1,13 @@
-{{#each miniStatsItems as |item|}}
-  {{vessels/vessel-details/mini-stats/item
+{{#vt-typography/headers/heading-h3}}
+  Last report data ({{reportDate}})
+{{/vt-typography/headers/heading-h3}}
+<div class="mini-stats-items">
+  {{#each miniStatsItems as |item|}}
+    {{vessels/vessel-details/mini-stats/item
     iconName=item.iconName
     header=item.header
     description=item.description
     customClass=item.customClass
-  }}
-{{/each}}
+    }}
+  {{/each}}
+</div>
