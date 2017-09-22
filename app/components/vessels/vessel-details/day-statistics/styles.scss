@@ -8,9 +8,8 @@
 
   .day-stats-items {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 90%;
-    max-width: 1000px;
     margin: 20px auto 50px;
 
     @media all and (max-width: $phone) {

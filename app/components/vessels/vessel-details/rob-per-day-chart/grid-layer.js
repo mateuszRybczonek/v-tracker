@@ -6,6 +6,7 @@ const { Evented, computed } = Ember;
 
 const EVENTS = {
   BAR_CLICK: 'bar-click',
+  BAR_HOVER: 'bar-hover',
 };
 
 export default Ember.Object.extend(Evented, {
@@ -122,6 +123,7 @@ export default Ember.Object.extend(Evented, {
         .attr('fill', 'transparent');
 
       select(element).attr('fill', 'url(#barGradient)');
+      this.trigger(EVENTS.BAR_HOVER, index);
     }
   },
 

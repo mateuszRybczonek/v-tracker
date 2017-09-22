@@ -25,6 +25,7 @@ export default Component.extend(EventHandlersMixin, {
     this._super(...arguments);
 
     this.set('_onBarClickBound', this._onBarClick.bind(this));
+    this.set('_onBarHoverBound', this._onBarHover.bind(this));
   },
 
   didInsertElement() {
@@ -45,6 +46,7 @@ export default Component.extend(EventHandlersMixin, {
 
     if (this.get('gridLayer')) {
       this.get('gridLayer').off(GRID_LAYER_EVENTS.BAR_CLICK, this.get('_onBarClickBound'));
+      this.get('gridLayer').off(GRID_LAYER_EVENTS.BAR_HOVER, this.get('_onBarHoverBound'));
       this.get('gridLayer').dispose();
     }
 
@@ -74,6 +76,7 @@ export default Component.extend(EventHandlersMixin, {
     });
 
     gridLayer.on(GRID_LAYER_EVENTS.BAR_CLICK, this.get('_onBarClickBound'));
+    gridLayer.on(GRID_LAYER_EVENTS.BAR_HOVER, this.get('_onBarHoverBound'));
     this.set('gridLayer', gridLayer);
   },
 
@@ -90,5 +93,11 @@ export default Component.extend(EventHandlersMixin, {
     this.set('selectedDayIndex', index);
     const day = this.get('data').objectAt(index).get('reportTime');
     this.get('onDayChange')(day);
+  },
+  
+  _onBarHover(index) {
+    this.set('hoveredDayIndex', index);
+    const day = this.get('data').objectAt(index).get('reportTime');
+    this.get('onDayHover')(day);
   },
 });

@@ -17,12 +17,21 @@
 {{vessels/vessel-details/rob-per-day-chart
   data=sortedReportsAsc
   onDayChange=(action (mut selectedDay))
+  onDayHover=(action (mut hoveredDay))
 }}
 
-{{vessels/vessel-details/day-statistics
-  data=sortedReportsAsc
-  day=selectedDay
-}}
+<div class="chart-stats">
+  {{vessels/vessel-details/day-statistics
+    data=sortedReportsAsc
+    day=selectedDay
+  }}
+
+  {{vessels/vessel-details/day-statistics
+    data=sortedReportsAsc
+    day=hoveredDay
+  }}
+</div>
+
 
 {{position-reports
   reports=sortedReportsDesc
