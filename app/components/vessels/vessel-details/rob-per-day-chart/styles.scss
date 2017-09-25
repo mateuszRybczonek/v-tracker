@@ -1,0 +1,24 @@
+$side-border: 1px solid $color-whitey-darker;
+
+& {
+  display: flex;
+  justify-content: center;
+
+  svg.chart {
+    width: 100%;
+    max-width: 1000px;
+    height: 350px;
+    border-left: $side-border;
+    border-right: $side-border;
+    user-select: none;
+  }
+
+  .chart-layer > path,
+  .labels-layer > text {
+    pointer-events: none;
+  }
+
+  .axis-layer > rect {
+    cursor: pointer;
+  }
+}

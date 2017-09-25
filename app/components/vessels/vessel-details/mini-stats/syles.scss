@@ -1,17 +1,22 @@
 & {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   padding: 0 32px;
-
-  @media all and (min-width: $desktop) {
-    flex-flow: row wrap;
-  }
+  text-align: center;
 
   @media all and (max-width: $tablet) {
-    flex-direction: column;
-    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .mini-stats-items {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
     align-items: flex-start;
-    padding: 0;
+
+    @media all and (max-width: $tablet) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0;
+    }
   }
 }

@@ -3,35 +3,34 @@ import Ember from 'ember';
 const { Component, computed } = Ember;
 
 export default Component.extend({
-  classNames: ['mini-stats'],
-  
-  reportDate: computed.reads('report.reportTime'),
+  classNames: ['day-statistics'],
 
-  miniStatsItems: computed('report', function() {
+  dayData: computed('data', 'day', function() {
+    return this.get('data')
+      .filterBy('reportTime', this.get('day'))
+      .get('firstObject');
+  }),
+  
+  dayStatsItems: computed('dayData', function() {
+    const dayData = this.get('dayData');
       return [
         {
           iconName: 'local-gas-station',
-          header: `${this.get('report.foRob')} cbm`,
+          header: `${dayData.data.foRob} cbm`,
           description: 'Remaining FO',
           customClass: 'icon-fo',
         },
         {
           iconName: 'local-gas-station',
-          header: `${this.get('report.doRob')} cbm`,
+          header: `${dayData.data.doRob} cbm`,
           description: 'Remaining DO',
           customClass: 'icon-do',
         },
         {
           iconName: 'local-drink',
-          header: `${this.get('report.fwRob')} cbm`,
+          header: `${dayData.data.fwRob} cbm`,
           description: 'Remaining FW',
           customClass: 'icon-fw',
-        },
-        {
-          iconName: 'person-pin',
-          header: `${this.get('report.pob')}`,
-          description: 'POB',
-          customClass: 'icon-pob'
         },
       ];
     }

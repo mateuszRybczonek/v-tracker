@@ -1,0 +1,22 @@
+& {
+  padding: 0 32px;
+  text-align: center;
+
+  @media all and (max-width: $tablet) {
+    text-align: left;
+  }
+
+  .day-stats-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px auto 50px;
+
+    @media all and (max-width: $phone) {
+      background-color: $color-font-grey;
+      padding: 0 15px 90px;
+      margin: -10px auto 0;
+      width: 100%;
+    }
+  }
+}
