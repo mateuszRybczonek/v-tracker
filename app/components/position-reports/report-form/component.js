@@ -17,6 +17,22 @@ export default Component.extend({
     }
   }],
 
+  latValidation: [{
+    message: 'Please provide latitude in a valid format (dd mm.m), + for N / - for S hemisphere',
+    validate: (inputValue) => {
+      let latPattern = /([0-8][0-9]|90)\s([0-5][0-9].[0-9])\s('N'||'S')/;
+      return latPattern.test(inputValue);
+    }
+  }],
+  
+  lngValidation: [{
+    message: 'Please provide longitude in a valid format (ddd mm.m), + for E / - for W hemisphere',
+    validate: (inputValue) => {
+      let lngPattern = /([0-1][0-9][0-9]|180)\s([0-5][0-9].[0-9])\s('E'||'W')/;
+      return lngPattern.test(inputValue);
+    }
+  }],
+
   actions: {
     back() {
       this.get('router').transitionTo('users.vessels.details', [this.get('report.vessel.id')]);

@@ -18,8 +18,9 @@
 
 {{paper-input
   class=form-control
-  label="Latitude"
+  label="Latitude (dd mm.m N)"
   value=report.lat
+  customValidations=latValidation
   onChange=(action (mut report.lat))
   required=true
   errorMessages=(hash required="Latitude is required.")
@@ -27,8 +28,9 @@
 
 {{paper-input
   class=form-control
-  label="Longitude"
+  label="Longitude (ddd mm.m E)"
   value=report.lng
+  customValidations=lngValidation
   onChange=(action (mut report.lng))
   required=true
 }}
