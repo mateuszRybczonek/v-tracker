@@ -9,7 +9,13 @@ export default Ember.Object.extend(Evented, {
   svg: null,
   data: null,
 
-  values: computed.mapBy('data', 'doRob'),
+  values: computed('data', function() {
+    const data = this.get('data');
+    const key = this.get('key');
+    return data.map( element => {
+      return element.get(key);
+    })
+  }),
 
   svgWidth: computed('svg', function() {
     return this.get('svg').node().getBoundingClientRect().width;
@@ -41,7 +47,7 @@ export default Ember.Object.extend(Evented, {
 
   lineGenerator: computed('xScale', 'data', function() {
     const xScale = this.get('xScale');
-
+    const key = this.get('key');
     return line().curve(curveCatmullRom.alpha(0.5))
       .x((data, index) => {
         switch (index) {
@@ -53,7 +59,7 @@ export default Ember.Object.extend(Evented, {
             return xScale(new Date(data.get('reportTime')));
         }
       })
-      .y(data => this.get('yScale')(data.get('doRob')));
+      .y(data => this.get('yScale')(data.get(key)));
   }),
 
   init() {
@@ -75,7 +81,7 @@ export default Ember.Object.extend(Evented, {
       .append('path')
       .classed('path', true)
       .attr('d', this.get('lineGenerator')(this.get('data')))
-      .attr('stroke', 'url(#curveGradient)')
+      .attr('stroke', `url(#curveGradient-${this.get('key')})`)
       .attr('stroke-width', 5)
       .attr('fill', 'none')
       .attr('stroke-linecap', 'round');
@@ -93,7 +99,7 @@ export default Ember.Object.extend(Evented, {
   _setGradient() {
     const gradient = this.get('svg').append('defs')
       .append('linearGradient')
-      .attr('id', 'curveGradient')
+      .attr('id', `curveGradient-${this.get('key')}`)
       .attr('x1', '0%')
       .attr('y1', '50%')
       .attr('x2', '100%')
@@ -107,7 +113,7 @@ export default Ember.Object.extend(Evented, {
 
     gradient.append('stop')
       .attr('offset', '100%')
-      .attr('stop-color', COLORS.DO)
+      .attr('stop-color', COLORS[this.get('key').toUpperCase()])
       .attr('stop-opacity', 1);
   },
 });

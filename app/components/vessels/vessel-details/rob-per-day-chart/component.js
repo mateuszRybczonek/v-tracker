@@ -50,8 +50,8 @@ export default Component.extend(EventHandlersMixin, {
       this.get('gridLayer').dispose();
     }
 
-    if (this.get('curveLayer')) {
-      this.get('curveLayer').dispose();
+    if (this.get('curveLayer-do')) {
+      this.get('curveLayer-do').dispose();
     }
   },
 
@@ -81,12 +81,27 @@ export default Component.extend(EventHandlersMixin, {
   },
 
   _drawCurve() {
-    const curveLayer = CurveLayer.create({
+    const curveLayerDoRob = CurveLayer.create({
       data: this.get('data'),
       svg: this.get('svg'),
+      key: 'doRob',
     });
 
-    this.set('curveLayer', curveLayer);
+    const curveLayerFoRob = CurveLayer.create({
+      data: this.get('data'),
+      svg: this.get('svg'),
+      key: 'foRob',
+    });
+
+     const curveLayerFwRob = CurveLayer.create({
+      data: this.get('data'),
+      svg: this.get('svg'),
+      key: 'fwRob',
+    });
+
+    this.set('curveLayer-do', curveLayerDoRob);
+    this.set('curveLayer-fo', curveLayerFoRob);
+    this.set('curveLayer-fw', curveLayerFwRob);
   },
 
   _onBarClick(index) {
